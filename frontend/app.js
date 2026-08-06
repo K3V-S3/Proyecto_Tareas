@@ -1,5 +1,5 @@
 // 1. CONFIGURACIÓN GLOBAL (Apunta a tu servidor nativo)
-const API_URL = 'https://localhost:3000/tasks';
+const API_URL = 'http://localhost:3000/tasks';
 
 // Intentamos leer si ya existe un nombre guardado en el disco del navegador
 let AUTHOR = localStorage.getItem('todo_author_session');
@@ -76,7 +76,7 @@ function checkAuth() {
     // 4. LEER TAREAS DESDE MYSQL (GET)
     async function fetchTasks() {
         try {
-            const response = await fetch(`${API_URL}?author=${AUTHOR}`);
+            const response = await fetch(API_URL)
             const json = await response.json();
 
             if (json.status === 'success') {
@@ -84,7 +84,7 @@ function checkAuth() {
             }
         } catch (error) {
             console.error('Error de red', error);
-            tasks.Container.innerHTML = '<p class="error">No se pudo conectar con el servidor nativo.</p>';
+            tasksContainer.innerHTML = `<p class="error">No se pudo conectar con el servidor nativo.</p>`;
         }
     }
 
