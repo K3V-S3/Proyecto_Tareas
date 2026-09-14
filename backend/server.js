@@ -177,5 +177,5 @@ const server = http.createServer(async (req, res) => {
 
 const PORT = 3000;
 server.listen(PORT, () => {
-    console.log(`Servidor Vanilla con MySQL real corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor Vanilla con MySQL real corriendo en http://localhost:3000`);
 });
